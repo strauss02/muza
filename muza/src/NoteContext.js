@@ -13,15 +13,14 @@ const NoteProvider = (props) => {
     '7/8': false,
     '8/8': false,
   })
-
   const flipNote = (note) => {
     const notesCopy = notes
     notesCopy[note] = !notes[note]
-    return notesCopy
+    setNotes(notesCopy)
   }
 
   return (
-    <NoteContext.Provider value={[notes, setNotes]}>
+    <NoteContext.Provider value={[notes, setNotes, flipNote]}>
       {props.children}
     </NoteContext.Provider>
   )
