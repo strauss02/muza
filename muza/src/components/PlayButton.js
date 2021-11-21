@@ -1,10 +1,18 @@
 import React, { useState } from 'react'
+import { NoteContext } from '../NoteContext'
 
 function PlayButton() {
   //get notes state
 
+  const runTrack = () => {
+    console.log('click')
+  }
+
   return (
-    <button className="text-white hover:text-gray-400">
+    <button
+      onClick={() => runTrack()}
+      className="text-white hover:text-gray-400"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6"
