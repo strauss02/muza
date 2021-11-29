@@ -1,11 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { NoteContext } from '../NoteContext'
 
 function PlayButton() {
   //get notes state
+  const [notes, setNotes, flipNote] = useContext(NoteContext)
+
+  function playByColumn(columnOfNotes) {
+    columnOfNotes.forEach((note) => {
+      // TODO: play note sound instead of console logging
+      console.log(note)
+    })
+  }
 
   const runTrack = () => {
-    console.log('click')
+    console.log(Object.keys(notes))
+
+    //take number of notes
+    Object.values(notes).forEach((note) => {
+      setTimeout(() => {
+        console.log(note)
+      }, 1000)
+    })
   }
 
   return (
