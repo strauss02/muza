@@ -1,11 +1,14 @@
 import React, { useState, useContext } from 'react'
 import { NoteContext } from '../NoteContext'
+import hatsound from '../assets/sounds/closedhihat.wav'
 
 function Note(props) {
   const [notes, setNotes, flipNote] = useContext(NoteContext)
 
   const [notePosition] = useState(props.id)
   const [isOn, setIsOn] = useState(false)
+
+  const sound = new Audio(props.soundFile)
 
   // styling
   const noteOnStyling = 'bg-green-300 w-5 h-10 m-3 hover:bg-green-500'
@@ -19,7 +22,8 @@ function Note(props) {
       onClick={() => {
         flipNote(notePosition, props.instrument)
         setIsOn(!isOn)
-        console.log(notes)
+        sound.play()
+        console.log(sound)
       }}
     ></div>
   )
