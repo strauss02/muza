@@ -3,11 +3,15 @@ import Note from './Note'
 import { NoteContext } from '../NoteContext'
 
 function Track(props) {
-  const [notes, setNotes, flipNote] = useContext(NoteContext)
+  const [notes, setNotes, flipNote, playNote] = useContext(NoteContext)
+
   function playTrack() {
-    Object.values(notes).forEach((note, index) => {
+    Object.values(notes[props.instrument]).forEach((note, index) => {
       setTimeout(() => {
         console.log(note)
+        if (note) {
+          playNote(note, props.instrument)
+        }
       }, 1000 * index)
     })
   }
@@ -17,6 +21,7 @@ function Track(props) {
       // onClick={() => playTrack()}
       className="w-full h-16 bg-gray-800 flex justify-around items-center "
     >
+      <button onClick={playTrack}> Play track </button>
       <Note
         instrument={props.instrument}
         soundFile={props.soundFile}

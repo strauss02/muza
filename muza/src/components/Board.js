@@ -1,5 +1,8 @@
 import Track from './Track'
 import PlayButton from './PlayButton'
+import React, { useContext } from 'react'
+
+import { NoteContext } from '../NoteContext'
 
 import closedHiHat from '../assets/sounds/closedhihat.wav'
 import openHiHat from '../assets/sounds/openhihat.wav'
@@ -7,6 +10,8 @@ import snare from '../assets/sounds/snare.wav'
 import kick from '../assets/sounds/kick.wav'
 
 function Board() {
+  const [notes, setNotes, flipNote] = useContext(NoteContext)
+
   function runPlayhead() {}
 
   return (

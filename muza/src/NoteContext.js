@@ -1,5 +1,22 @@
 import React, { createContext, useState } from 'react'
 
+import closedHiHat from './assets/sounds/closedhihat.wav'
+import openHiHat from './assets/sounds/openhihat.wav'
+import snare from './assets/sounds/snare.wav'
+import kick from './assets/sounds/kick.wav'
+
+const kickSound = new Audio(kick)
+const snareSound = new Audio(snare)
+const openHiHatSound = new Audio(openHiHat)
+const closedHiHatSound = new Audio(closedHiHat)
+
+const soundFiles = {
+  kick: kickSound,
+  snare: snareSound,
+  closedHiHat: closedHiHatSound,
+  openHiHat: openHiHatSound,
+}
+
 const NoteContext = createContext()
 
 const NoteProvider = (props) => {
@@ -57,7 +74,7 @@ const NoteProvider = (props) => {
   }
 
   const playNote = (note, instrument) => {
-    console.log(note)
+    soundFiles[instrument].play()
   }
 
   return (

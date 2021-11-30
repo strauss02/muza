@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { NoteContext } from '../NoteContext'
-import hatsound from '../assets/sounds/closedhihat.wav'
 
 function Note(props) {
   const [notes, setNotes, flipNote] = useContext(NoteContext)
@@ -23,7 +22,7 @@ function Note(props) {
         flipNote(notePosition, props.instrument)
         setIsOn(!isOn)
         sound.play()
-        console.log(sound)
+        console.log(notePosition)
       }}
     ></div>
   )
