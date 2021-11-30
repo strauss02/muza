@@ -13,14 +13,14 @@ function PlayButton() {
   }
 
   const runTrack = () => {
-    console.log(Object.keys(notes))
+    console.log('play clicked')
 
-    //take number of notes
-    Object.values(notes).forEach((note) => {
-      setTimeout(() => {
-        console.log(note)
-      }, 1000)
-    })
+    // //take number of notes
+    // Object.values(notes).forEach((note) => {
+    //   setTimeout(() => {
+    //     console.log(note)
+    //   }, 1000)
+    // })
   }
 
   return (

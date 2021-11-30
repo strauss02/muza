@@ -15,6 +15,10 @@ function Track(props) {
       }, 1000 * index)
     })
   }
+  if (props.isPlaying) {
+    console.log('detected that were playing')
+    playTrack()
+  }
 
   return (
     <div
